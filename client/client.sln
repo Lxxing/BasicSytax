@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "client", "client\client.vcproj", "{5A26D608-3931-40AD-9E74-2424FFC1E533}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "hell0", "..\hell0\hell0\hell0.vcproj", "{FC235DAE-5FD4-46D6-B53C-C6F3A9128C43}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5A26D608-3931-40AD-9E74-2424FFC1E533}.Debug|Win32.ActiveCfg = Debug|Win32
+		{5A26D608-3931-40AD-9E74-2424FFC1E533}.Debug|Win32.Build.0 = Debug|Win32
+		{5A26D608-3931-40AD-9E74-2424FFC1E533}.Release|Win32.ActiveCfg = Release|Win32
+		{5A26D608-3931-40AD-9E74-2424FFC1E533}.Release|Win32.Build.0 = Release|Win32
+		{FC235DAE-5FD4-46D6-B53C-C6F3A9128C43}.Debug|Win32.ActiveCfg = Debug|Win32
+		{FC235DAE-5FD4-46D6-B53C-C6F3A9128C43}.Debug|Win32.Build.0 = Debug|Win32
+		{FC235DAE-5FD4-46D6-B53C-C6F3A9128C43}.Release|Win32.ActiveCfg = Release|Win32
+		{FC235DAE-5FD4-46D6-B53C-C6F3A9128C43}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
