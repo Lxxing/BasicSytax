@@ -1,4 +1,1 @@
-# TAO_HelloWorld
-Common Object Request Broker Architecture,公共对象请求代理体系结构，通用对象请求代理体系结构
-
-TAO_HelloWorld
+框架学习的基础测试，以及基础的语法语义测试。
