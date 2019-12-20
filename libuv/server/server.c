@@ -79,7 +79,17 @@ void echo_write(uv_write_t *req, int status) {
 	}
 	free_write_req(req);
 }
+static void after_process_request(uv_work_t* req, int status)
+{
 
+	printf("after_process_request status = %d", status);
+}
+static void process_request_command(uv_work_t *req)
+{
+	uv_buf_t *mydata = (write_req_t *)(req->data);
+	printf("len : %d body data:%s \n", mydata->len, mydata->base);
+
+}
 void echo_read(uv_stream_t *client, ssize_t nread, uv_buf_t *buf) 
 {
 	write_req_t *mydata = (write_req_t *)client->data;
@@ -119,10 +129,35 @@ void echo_read(uv_stream_t *client, ssize_t nread, uv_buf_t *buf)
 		else if(mydata->testnum == 90)
 		{
 			//read body
+			uv_work_t *work_req = NULL;
+			uv_async_t *async_req = NULL;
+			uv_buf_t *constratedata = (uv_buf_t*)malloc(sizeof(uv_buf_t));
+			
 			printf("body data:%s \n", mydata->context);
 			mydata->testnum = 88;
 			mydata->nread = 0;
 			*buf = uv_buf_init(mydata->context,mydata->text_len);
+		
+			work_req = (uv_work_t *)malloc(sizeof(uv_work_t));
+			async_req = (uv_async_t*)malloc(sizeof(uv_async_t));
+
+			memset(work_req, 0, sizeof(uv_work_t));
+			memset(async_req, 0, sizeof(uv_async_t));
+
+			if (uv_async_init(loop, async_req, NULL) <0) {
+				printf("uv_async_init error \n");
+			}
+
+			constratedata->base = mydata->context;
+			constratedata->len = mydata->text_len;
+
+			work_req->data = (void *)constratedata;
+			async_req->data = (void *)constratedata;
+
+			uv_queue_work(loop, work_req,
+				process_request_command,
+				after_process_request);
+
 			return;
 		}
 		write_req_t *req = (write_req_t*)malloc(sizeof(write_req_t));
