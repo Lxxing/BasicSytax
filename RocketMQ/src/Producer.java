@@ -15,10 +15,12 @@
  * limitations under the License.
  */
 
+import org.apache.rocketmq.client.QueryResult;
 import org.apache.rocketmq.client.exception.MQClientException;
 import org.apache.rocketmq.client.producer.DefaultMQProducer;
 import org.apache.rocketmq.client.producer.SendResult;
 import org.apache.rocketmq.common.message.Message;
+import org.apache.rocketmq.common.message.MessageExt;
 import org.apache.rocketmq.remoting.common.RemotingHelper;
 
 /**
@@ -58,6 +60,7 @@ public class Producer {
                  */
                 Message msg = new Message("TopicTest" /* Topic */,
                     "TagA" /* Tag */,
+                    "key113",
                     ("Hello RocketMQ " + i).getBytes(RemotingHelper.DEFAULT_CHARSET) /* Message body */
                 );
 
@@ -67,6 +70,13 @@ public class Producer {
                 SendResult sendResult = producer.send(msg);
 
                 System.out.printf("%s%n", sendResult);
+               //≤‚ ‘∑¢≤º’ﬂ
+                QueryResult queryMessage =
+                        producer.queryMessage("TopicTest", "key113", 10, 0, System.currentTimeMillis());
+                    for (MessageExt m : queryMessage.getMessageList()) {
+                        System.out.printf("%s%n", m);
+                    }
+                    
             } catch (Exception e) {
                 e.printStackTrace();
                 Thread.sleep(1000);
