@@ -18,5 +18,19 @@
     <ClCompile Include="NamesrvStartup.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\RMQ4CPP\namesrv\NamesrvController.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\RMQ4CPP\remoting\RemotingServer.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\RMQ4CPP\namesrv\NamesrvController.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\RMQ4CPP\remoting\RemotingServer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

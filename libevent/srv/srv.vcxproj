@@ -104,7 +104,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(ThirdPart)\libevent-2.1.10;$(ThirdPart)\libevent-2.1.10\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ThirdPart)\libevent-2.1.10;$(ThirdPart)\libevent-2.1.10\include;$(ThirdPart)\boost_1_58_0;$(SolutionDir)..\RMQ4CPP\namesrv;$(SolutionDir)..\RMQ4CPP\common;$(SolutionDir)..\RMQ4CPP\remoting</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -150,7 +150,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\RMQ4CPP\namesrv\NamesrvController.cpp" />
+    <ClCompile Include="..\..\RMQ4CPP\remoting\RemotingServer.cpp" />
     <ClCompile Include="NamesrvStartup.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\RMQ4CPP\namesrv\NamesrvController.h" />
+    <ClInclude Include="..\..\RMQ4CPP\remoting\RemotingServer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
