@@ -28,18 +28,20 @@ std::shared_ptr<NamesrvController> createNamesrvController()
 void start(const std::shared_ptr<NamesrvController> & nsc)
 {
 	nsc->initialize();
+	nsc->start();
 }
 
-void main0()
+std::shared_ptr<NamesrvController> main0()
 {
 	std::shared_ptr<NamesrvController> controller = createNamesrvController();
     start(controller);
+
+	return controller;
 }
 
 int main()
 {
-	main0();
-	
+	std::shared_ptr<NamesrvController> nc = main0();
 	while (1)
 	{
 		Sleep(1000);

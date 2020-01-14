@@ -22,6 +22,7 @@ NamesrvController::~NamesrvController()
 bool NamesrvController::initialize()
 {
 	this->remotesrv.init();
+	this->remotesrv.start();
 
 	return true;
 }
