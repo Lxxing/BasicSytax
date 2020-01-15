@@ -23,6 +23,11 @@
 #include <event2/event.h>
 #include <event2/listener.h>
 
+#include <MQBuffer.h>
+#include <MQTypes.h>
+#include <RequestProcessor.h>
+
+
 #include "RemotingUtil.h"
 using namespace std;
 
@@ -49,8 +54,9 @@ public:
 					 int retrySendTimes = 1);
 	
 	void invokeOneway(const string& addr);
+	event_base * GetEventBase() const;
+	void registerDefaultProcessor(const           std::shared_ptr<RequestProcessor> processor);
 
-	
 	static void read_callback(struct bufferevent* bev, void* ctx);
 	static void listener_callback(evconnlistener *listener,
 		evutil_socket_t fd, struct sockaddr *sock, int socklen, void *arg);
@@ -60,6 +66,7 @@ public:
 private:
 	 void runLoop();
 	 void SocketInit();
+	 static void processMessageReceived(const MQBuffer & msg,const RemotingServer *rs);
 
 private:
 	evutil_socket_t m_fd;
@@ -69,6 +76,7 @@ private:
 	evconnlistener *m_listener;
 	std::thread* m_loopThread;
 	bool _is_running; 
+	std::shared_ptr<RequestProcessor> defaultRequestProcessor;
 };
 	
 	

@@ -3,6 +3,7 @@
 //
 
 #include <iostream>
+#include <hash_map>
 using namespace std;
 
 #define LenTest 20

@@ -11,7 +11,9 @@
 #include <iostream>  
 using namespace std;
 
+
 #include <RemotingServer.h>
+#include ""
 
 namespace lxmq{
 
@@ -30,7 +32,8 @@ public:
 	void registerProcessor();
 
 private:
-	RemotingServer remotesrv;
+	std::shared_ptr<RemotingServer> remotingServer;
+	const RouteInfoManager routeInfoManager;
 
 
 };//end of NamesrvController
