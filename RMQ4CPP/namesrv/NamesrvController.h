@@ -31,9 +31,10 @@ public:
 
 	void registerProcessor();
 
+	const std::shard_ptr<RouteInfoManager> & getRouteInfoManager();
 private:
 	std::shared_ptr<RemotingServer> remotingServer;
-	const RouteInfoManager routeInfoManager;
+	const std::shard_ptr<RouteInfoManager> routeInfoManager;
 
 
 };//end of NamesrvController

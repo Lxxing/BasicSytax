@@ -8,6 +8,7 @@
 #include "RemotingCommand.h"
 #include "MQProtos.h"
 #include "MQVersion.h"
+#include "RegistorBrokerRequestHeader.h"
 
 namespace lxmq{
 
@@ -109,27 +110,18 @@ RemotingCommand DefaultRequestProcessor::processRequest(const MQBuffer & msg)
 RemotingCommand DefaultRequestProcessor::registerBroker( RemotingCommand *request) 
 {
     RemotingCommand response;
+    
+	RegisterBrokerRequestHeader requestHeader;
 
-    this->namesrvController->
-	//this->namesrvController
-     /*RegisterBrokerResult result = this..getRouteInfoManager().registerBroker(
-         requestHeader.getClusterName(),
-         requestHeader.getBrokerAddr(),
-         requestHeader.getBrokerName(),
-         requestHeader.getBrokerId(),
-         requestHeader.getHaServerAddr(),
-         topicConfigWrapper,
-         null,
-         ctx.channel()
+    this->namesrvController->getRouteInfoManager()->registerBroker(
+    	requestHeader.getClusterName(),
+        requestHeader.getBrokerAddr(),
+        requestHeader.getBrokerName(),
+        requestHeader.getBrokerId(),
+        requestHeader.getHaServerAddr()
      );
 
-     responseHeader.setHaServerAddr(result.getHaServerAddr());
-     responseHeader.setMasterAddr(result.getMasterAddr());
-
-     byte[] jsonValue = this.namesrvController.getKvConfigManager().getKVListByNamespace(NamesrvUtil.NAMESPACE_ORDER_TOPIC_CONFIG);
-     response.setBody(jsonValue);
-     response.setCode(ResponseCode.SUCCESS);
-     response.setRemark(null);*/
+     
      return response;
  }
 

@@ -45,6 +45,15 @@ void NamesrvController::registerProcessor()
 	this->remotingServer->registerDefaultProcessor(std::make_shared<DefaultRequestProcessor>());
 }
 
-	
+
+const std::shard_ptr<RouteInfoManager> & getRouteInfoManager()
+{
+
+	return this->routeInfoManager;
+}
+
+
+
+
 }//    end of lxmq
 
