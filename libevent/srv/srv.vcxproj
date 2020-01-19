@@ -104,13 +104,13 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(ThirdPart)\libevent-2.1.10;$(ThirdPart)\libevent-2.1.10\include;$(ThirdPart)\boost_1_58_0;$(SolutionDir)..\RMQ4CPP\namesrv;$(SolutionDir)..\RMQ4CPP\common;$(SolutionDir)..\RMQ4CPP\remoting</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ThirdPart)\jsoncpp-0.10.6;$(ThirdPart)\libevent-2.1.10;$(ThirdPart)\libevent-2.1.10\include;$(ThirdPart)\boost_1_58_0;$(SolutionDir)..\RMQ4CPP\namesrv;$(SolutionDir)..\RMQ4CPP\common;$(SolutionDir)..\RMQ4CPP\remoting</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(ThirdPart)\libevent-2.1.10</AdditionalLibraryDirectories>
-      <AdditionalDependencies>libevent_core.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ThirdPart)\libevent-2.1.10;$(ThirdPart)\boost_1_58_0\stage\lib;$(ThirdPart)\jsoncpp-0.10.6\$(Platform)\Debug</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libevent_core.lib;jsoncpp_lib_staticd.lib;libboost_atomic-vc140-mt-gd-1_58.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -153,12 +153,26 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\RMQ4CPP\common\CommandHeader.cpp" />
+    <ClCompile Include="..\..\RMQ4CPP\common\DefaultRequestProcessor.cpp" />
+    <ClCompile Include="..\..\RMQ4CPP\common\MQBuffer.cpp" />
+    <ClCompile Include="..\..\RMQ4CPP\common\MQVersion.cpp" />
+    <ClCompile Include="..\..\RMQ4CPP\common\RemotingCommand.cpp" />
     <ClCompile Include="..\..\RMQ4CPP\namesrv\NamesrvController.cpp" />
+    <ClCompile Include="..\..\RMQ4CPP\namesrv\RouteInfoManager.cpp" />
     <ClCompile Include="..\..\RMQ4CPP\remoting\RemotingServer.cpp" />
     <ClCompile Include="NamesrvStartup.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\RMQ4CPP\common\CommandHeader.h" />
+    <ClInclude Include="..\..\RMQ4CPP\common\DefaultRequestProcessor.h" />
+    <ClInclude Include="..\..\RMQ4CPP\common\MQBuffer.h" />
+    <ClInclude Include="..\..\RMQ4CPP\common\MQProtos.h" />
+    <ClInclude Include="..\..\RMQ4CPP\common\MQTypes.h" />
+    <ClInclude Include="..\..\RMQ4CPP\common\MQVersion.h" />
+    <ClInclude Include="..\..\RMQ4CPP\common\RemotingCommand.h" />
     <ClInclude Include="..\..\RMQ4CPP\namesrv\NamesrvController.h" />
+    <ClInclude Include="..\..\RMQ4CPP\namesrv\RouteInfoManager.h" />
     <ClInclude Include="..\..\RMQ4CPP\remoting\RemotingServer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

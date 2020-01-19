@@ -8,9 +8,40 @@
 #define __ROUTEINFO_MANAGER__H_
 
 #include <unordered_map>
+#include <mutex>
+#include <set>
 using namespace std;
 
 namespace lxmq{
+
+
+
+class BrokerLiveInfo
+{
+public:
+    long getLastUpdateTimestamp() {
+        return lastUpdateTimestamp;
+    }
+
+    void setLastUpdateTimestamp(long lastUpdateTimestamp) {
+        this->lastUpdateTimestamp = lastUpdateTimestamp;
+    }
+
+    string getHaServerAddr() {
+        return haServerAddr;
+    }
+
+    void setHaServerAddr(string haServerAddr) {
+        this->haServerAddr = haServerAddr;
+    }
+
+private:
+
+    long lastUpdateTimestamp;
+    string haServerAddr;
+
+};
+
 
 class RouteInfoManager
 {
@@ -18,23 +49,25 @@ public:
 	RouteInfoManager();
 	~RouteInfoManager();
 
-	void registerBroker(const String clusterName,
-        const String brokerAddr,
-        const String brokerName,
+	void registerBroker(const string clusterName,
+        const string brokerAddr,
+        const string brokerName,
         const long brokerId,
-        const String haServerAddr,
-        const List<String> filterServerList);
+        const string haServerAddr);
 private:
     const static long BROKER_CHANNEL_EXPIRED_TIME = 1000 * 60 * 2;
-    const mutux lock;
-    const unordered_map<String/* topic */, List<QueueData>> topicQueueTable;
-    const unordered_map<String/* brokerName */, BrokerData> brokerAddrTable;
-    const unordered_map<String/* clusterName */, Set<String/* brokerName */>> clusterAddrTable;
-    const unordered_map<String/* brokerAddr */, BrokerLiveInfo> brokerLiveTable;
-    const unordered_map<String/* brokerAddr */, List<String>/* Filter Server */> filterServerTable;
+    const mutex lock;
+    //const unordered_map<string/* topic */, list<QueueData>> topicQueueTable;
+    //const unordered_map<string/* brokerName */, BrokerData> brokerAddrTable;
+    const unordered_map<string/* clusterName */, set<string/* brokerName */>> clusterAddrTable;
+    const unordered_map<string/* brokerAddr */, BrokerLiveInfo> brokerLiveTable;
+    const unordered_map<string/* brokerAddr */, list<string>/* Filter Server */> filterServerTable;
 
 
 };
+
+
+
 
 }//    end of lxmq
 

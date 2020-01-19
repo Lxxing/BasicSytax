@@ -16,7 +16,7 @@ class NamesrvController;
 class DefaultRequestProcessor : public RequestProcessor
 {
 public:
-	DefaultRequestProcessor(const NamesrvController *);
+	DefaultRequestProcessor(NamesrvController *);
 	~DefaultRequestProcessor();
 	
 	RemotingCommand processRequest(const MQBuffer & msg);
@@ -24,7 +24,7 @@ public:
 	RemotingCommand registerBroker(RemotingCommand *request);
 
 private:
-	const NamesrvController *namesrvController;
+	NamesrvController *namesrvController;
 };
 
 }//    end of lxmq

@@ -5,29 +5,22 @@
 * 欢迎交流指正 xiaoxiaomiantianwo@163.com
 ******************************************************************************************/
 
-#include "RouteInfoManager.h"
 
+#ifndef __COMMAND_CUSTORMHEAD__H_
+#define __COMMAND_CUSTORMHEAD__H_
+	
 namespace lxmq{
 
-RouteInfoManager::RouteInfoManager()
+class CommandCustomHeader
 {
-
-}
-
-RouteInfoManager::~RouteInfoManager()
-{
-
-}
-
-void RouteInfoManager::registerBroker(const string clusterName, 
-	const string brokerAddr, const string brokerName,
-	const long brokerId, const string haServerAddr)
-{
-	
-}
-
-
+	virtual void checkFields() = 0;
+};
 
 
 }//    end of lxmq
+	
+	
+	
+	
+#endif //__COMMAND_CUSTORMHEAD__H_
 

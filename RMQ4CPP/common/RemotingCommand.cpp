@@ -12,8 +12,6 @@
 
 namespace lxmq{
 
-
-
 RemotingCommand& RemotingCommand::operator=(const RemotingCommand& command) {
   if (this != &command) {
     Assign(command);

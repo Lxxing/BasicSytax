@@ -12,7 +12,7 @@ namespace lxmq{
 
 NamesrvController::NamesrvController()
 {
-	remotingServer = std::make_shared<RemotingServer>(this);
+	
 }
 
 NamesrvController::~NamesrvController()
@@ -22,6 +22,8 @@ NamesrvController::~NamesrvController()
 
 bool NamesrvController::initialize()
 {
+	this->remotingServer = std::make_shared<RemotingServer>();
+
 	this->remotingServer->init();
 	this->remotingServer->start();
 
@@ -42,11 +44,11 @@ void NamesrvController::shutdown()
 
 void NamesrvController::registerProcessor()
 {
-	this->remotingServer->registerDefaultProcessor(std::make_shared<DefaultRequestProcessor>());
+	this->remotingServer->registerDefaultProcessor(std::make_shared<DefaultRequestProcessor>(this));
 }
 
 
-const std::shard_ptr<RouteInfoManager> & getRouteInfoManager()
+const std::shared_ptr<RouteInfoManager> & NamesrvController::getRouteInfoManager()
 {
 
 	return this->routeInfoManager;

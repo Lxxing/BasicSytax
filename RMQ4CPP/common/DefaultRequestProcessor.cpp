@@ -10,9 +10,11 @@
 #include "MQVersion.h"
 #include "RegistorBrokerRequestHeader.h"
 
+#include "NamesrvController.h"
+
 namespace lxmq{
 
-DefaultRequestProcessor::DefaultRequestProcessor(const NamesrvController *rs)
+DefaultRequestProcessor::DefaultRequestProcessor(NamesrvController *rs)
 {
 	this->namesrvController = rs;
 }
@@ -29,7 +31,7 @@ RemotingCommand DefaultRequestProcessor::processRequest(const MQBuffer & msg)
     	request = RemotingCommand::Decode(msg);
   	} catch (...) {
     	printf("processData error");
-    	return;
+    	return *request;
   	}
   	
     int opaque = request->getOpaque();
@@ -48,15 +50,18 @@ RemotingCommand DefaultRequestProcessor::processRequest(const MQBuffer & msg)
 			//return queryBrokerTopicConfig(ctx, request);
 			break;
 		case REGISTER_BROKER:
+		{
 			MQVersion::Version brokerVersion = MQVersion::value2Version(request->getVersion());
-			if (brokerVersion >= MQVersion::Version::V3_0_11) 
+			if (brokerVersion >= MQVersion::Version::V3_0_11)
 			{
 				//return this.registerBrokerWithFilterServer(ctx, request);
-			} 
-			else 
+			}
+			else
 			{
 				return this->registerBroker(request);
 			}
+			break;
+		}
 		case UNREGISTER_BROKER:
 			//return this.unregisterBroker(ctx, request);
 			break;
@@ -103,7 +108,7 @@ RemotingCommand DefaultRequestProcessor::processRequest(const MQBuffer & msg)
 			break;
 	}
 
-  return;
+  return *request;
 }
 
 

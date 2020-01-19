@@ -19,9 +19,9 @@ const char* MQVersion::getVersionDesc(int value) {
   return Enum2Sring(MQVersion(value));
 }
 
-static MQVersion value2Version(int value)
+MQVersion::Version MQVersion::value2Version(int value)
 {
-	return (MQVersion)value;
+	return MQVersion::Version(value);
 }
 
 

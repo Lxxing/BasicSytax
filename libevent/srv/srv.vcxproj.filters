@@ -24,12 +24,54 @@
     <ClCompile Include="..\..\RMQ4CPP\remoting\RemotingServer.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\RMQ4CPP\common\MQBuffer.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\RMQ4CPP\common\DefaultRequestProcessor.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\RMQ4CPP\common\RemotingCommand.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\RMQ4CPP\common\CommandHeader.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\RMQ4CPP\common\MQVersion.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\RMQ4CPP\namesrv\RouteInfoManager.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\RMQ4CPP\namesrv\NamesrvController.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="..\..\RMQ4CPP\remoting\RemotingServer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\RMQ4CPP\common\MQBuffer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\RMQ4CPP\common\DefaultRequestProcessor.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\RMQ4CPP\common\RemotingCommand.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\RMQ4CPP\common\CommandHeader.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\RMQ4CPP\common\MQProtos.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\RMQ4CPP\common\MQTypes.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\RMQ4CPP\common\MQVersion.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\RMQ4CPP\namesrv\RouteInfoManager.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

@@ -28,8 +28,8 @@ const int RPC_ONEWAY = 1;  // 0, RPC // 1, Oneway;
 class RemotingCommand {
  public:
   RemotingCommand() : m_code(0){};
-  RemotingCommand(int code);
-  RemotingCommand(const RemotingCommand& command);
+  RemotingCommand(int code) {};
+  RemotingCommand(const RemotingCommand& command) {};
   
 RemotingCommand::RemotingCommand(int code,
                                  string language,
