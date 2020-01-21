@@ -84,9 +84,9 @@ const MQBuffer* RemotingCommand::GetBody() const {
 }
 
 void RemotingCommand::SetBody(const char* pData, int len) {
-  /*m_body.reset();
-  m_body.setSize(len);
-  m_body.copyFrom(pData, 0, len);*/
+  m_body.Clean();
+  m_body.SetSize(len);
+  memcpy((void*)m_body.GetData(),(void*)pData,len);
 }
 
 RemotingCommand* RemotingCommand::Decode(const MQBuffer& buf) {
@@ -122,7 +122,7 @@ RemotingCommand* RemotingCommand::Decode(const MQBuffer& buf) {
   }
   printf(
       "code:%d, remark:%s, version:%d, opaque:%d, flag:%d, remark:%s, "
-      "headLen:%d, bodyLen:%d ",
+      "headLen:%d, bodyLen:%d \n",
       code, language.c_str(), version, opaque, flag, remark.c_str(), headLen, bodyLen);
   RemotingCommand* cmd = new RemotingCommand(code, language, version, opaque, flag, remark, NULL);
   cmd->setParsedJson(object);
@@ -130,6 +130,15 @@ RemotingCommand* RemotingCommand::Decode(const MQBuffer& buf) {
     cmd->SetBody(pData + 4 + headLen, bodyLen);
   }
   return cmd;
+}
+
+RemotingCommand RemotingCommand::decodeCommandCustomHeader(   RemotingCommand request)
+{
+	RemotingCommand respose;
+
+
+
+	return respose;
 }
 
 void RemotingCommand::markResponseType() {
@@ -226,6 +235,10 @@ void RemotingCommand::setRemark(string mark) {
 
 CommandHeader* RemotingCommand::getCommandHeader() const {
   return m_pExtHeader.get();
+}
+
+Json::Value& RemotingCommand::getParsedJson() {
+  return m_parsedJson;
 }
 
 void RemotingCommand::setParsedJson(Json::Value json) {

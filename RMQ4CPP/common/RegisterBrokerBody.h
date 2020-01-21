@@ -4,40 +4,25 @@
 * github:https://github.com/Lxxing?tab=repositories
 * 欢迎交流指正 xiaoxiaomiantianwo@163.com
 ******************************************************************************************/
-#ifndef __MQBUFFER__H_
-#define __MQBUFFER__H_
+#ifndef __REGISTER_BROKERBODY__H_
+#define __REGISTER_BROKERBODY__H_
 
 namespace lxmq{
 
-
-
-class MQBuffer
+class RegisterBrokerBody
 {
 public:
+	RegisterBrokerBody();
+	~RegisterBrokerBody();
 
-	MQBuffer();
-	MQBuffer(int length);
-	~MQBuffer();
-	void Clean();
-	const char * GetData() const;
-	int GetSize() const;
-	void SetSize(int newlen);
-private:
-	char * data;
-	int length;
-
+	static RegisterBrokerBody decode();
 
 };
-
-
-
-
-
 
 }//    end of lxmq
 
 
 
 
-#endif //__MQBUFFER__H_
+#endif //__REGISTER_BROKERBODY__H_
 

@@ -22,6 +22,7 @@ public:
 	RemotingCommand processRequest(const MQBuffer & msg);
 
 	RemotingCommand registerBroker(RemotingCommand *request);
+	RemotingCommand registerBrokerWithFilterServer(RemotingCommand *request);
 
 private:
 	NamesrvController *namesrvController;

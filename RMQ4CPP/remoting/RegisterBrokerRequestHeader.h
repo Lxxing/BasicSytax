@@ -74,12 +74,42 @@ public:
     void setBodyCrc32(int bodyCrc32) {
         this->bodyCrc32 = bodyCrc32;
     }
+
+    static CommandCustomHeader* decodeCommandCustomHeader(Json::Value &ext)
+    {
+    	RegisterBrokerRequestHeader* rnt = new RegisterBrokerRequestHeader();
+  	    Json::Value& tempValue = ext["brokerName"];
+  		if (tempValue.isString()) {
+    		rnt->brokerName = tempValue.asString();
+  		}
+
+  		tempValue = ext["brokerAddr"];
+  		if (tempValue.isString()) {
+    		rnt->brokerAddr = tempValue.asString();
+  		}
+		tempValue = ext["clusterName"];
+		if (tempValue.isString()) {
+			rnt->clusterName = tempValue.asString();
+		}
+
+		tempValue = ext["haServerAddr"];
+		if (tempValue.isString()) {
+			rnt->haServerAddr = tempValue.asString();
+		}
+
+		tempValue = ext["brokerId"];
+		if (tempValue.isString()) {
+			string sbid = tempValue.asString();
+			rnt->brokerId = 0;
+		}
+		return rnt;
+    }
 private:
     string brokerName;
     string brokerAddr;
     string clusterName;
     string haServerAddr;
-    long brokerId;
+    int brokerId;
     bool compressed;
 
     int bodyCrc32 = 0;

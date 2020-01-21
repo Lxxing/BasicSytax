@@ -62,6 +62,7 @@ RemotingCommand::RemotingCommand(int code,
   bool isResponseType();
   void markOnewayRPC();
   bool isOnewayRPC();
+  Json::Value& getParsedJson();
   void setParsedJson(Json::Value json);
   CommandHeader* getCommandHeader() const;
   const int getFlag() const;
@@ -72,6 +73,7 @@ RemotingCommand::RemotingCommand(int code,
 
  public:
   void Encode();
+  RemotingCommand decodeCommandCustomHeader(   RemotingCommand request);
   static RemotingCommand* Decode(const MQBuffer& mem);
   std::string ToString() const;
 

@@ -8,7 +8,7 @@
 #include "RemotingCommand.h"
 #include "MQProtos.h"
 #include "MQVersion.h"
-#include "RegistorBrokerRequestHeader.h"
+#include "RegisterBrokerRequestHeader.h"
 
 #include "NamesrvController.h"
 
@@ -34,9 +34,9 @@ RemotingCommand DefaultRequestProcessor::processRequest(const MQBuffer & msg)
     	return *request;
   	}
   	
-    int opaque = request->getOpaque();
+    int code = request->getCode();
 	
-	switch (opaque) {
+	switch (code) {
 		case PUT_KV_CONFIG:
 			//return this.putKVConfig(ctx, request);
 			break;
@@ -54,7 +54,7 @@ RemotingCommand DefaultRequestProcessor::processRequest(const MQBuffer & msg)
 			MQVersion::Version brokerVersion = MQVersion::value2Version(request->getVersion());
 			if (brokerVersion >= MQVersion::Version::V3_0_11)
 			{
-				//return this.registerBrokerWithFilterServer(ctx, request);
+				return this->registerBrokerWithFilterServer(request);
 			}
 			else
 			{
@@ -128,8 +128,30 @@ RemotingCommand DefaultRequestProcessor::registerBroker( RemotingCommand *reques
 
      
      return response;
- }
+}
 
+RemotingCommand DefaultRequestProcessor::registerBrokerWithFilterServer( RemotingCommand *request) 
+{
+	//request->SetExtHeader(request->getCode());
+
+	RemotingCommand response;
+
+	Json::Value& pj = request->getParsedJson();
+	Json::Value ext = pj["extFields"];
+	RegisterBrokerRequestHeader *requestHeader = 
+		(RegisterBrokerRequestHeader*)RegisterBrokerRequestHeader::decodeCommandCustomHeader(ext);
+	
+	this->namesrvController->getRouteInfoManager()->registerBroker(
+		requestHeader->getClusterName(),
+		requestHeader->getBrokerAddr(),
+		requestHeader->getBrokerName(),
+		requestHeader->getBrokerId(),
+		requestHeader->getHaServerAddr()
+		);
+	
+		 
+	return response;
+}
 
     
 

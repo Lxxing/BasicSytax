@@ -29,8 +29,19 @@ MQBuffer::~MQBuffer()
 {	
 	if (this->data != NULL)
 	{
-		delete this->data;
+		free(this->data);
 	}
+}
+
+void MQBuffer::Clean()
+{	
+	if(this->data != NULL)
+	{
+		free(this->data);
+	}
+
+	this->length = 0;
+	
 }
 
 const char *MQBuffer::GetData() const
@@ -41,6 +52,12 @@ const char *MQBuffer::GetData() const
 int MQBuffer::GetSize() const
 {
 	return this->length;
+}
+
+void MQBuffer::SetSize(int newlen)
+{
+	this->length = newlen;
+	this->data = (char*)malloc(newlen);
 }
 
 
