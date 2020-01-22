@@ -21,6 +21,8 @@ public:
 	
 	RemotingCommand processRequest(const MQBuffer & msg);
 
+	RemotingCommand getRouteInfoByTopic(RemotingCommand *request);
+
 	RemotingCommand registerBroker(RemotingCommand *request);
 	RemotingCommand registerBrokerWithFilterServer(RemotingCommand *request);
 

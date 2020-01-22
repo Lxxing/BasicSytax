@@ -9,6 +9,7 @@
 #include "MQProtos.h"
 #include "MQVersion.h"
 #include "RegisterBrokerRequestHeader.h"
+#include "GetRouteInfoRequestHeader.h"
 
 #include "NamesrvController.h"
 
@@ -66,7 +67,7 @@ RemotingCommand DefaultRequestProcessor::processRequest(const MQBuffer & msg)
 			//return this.unregisterBroker(ctx, request);
 			break;
 		case GET_ROUTEINTO_BY_TOPIC:
-			//return this.getRouteInfoByTopic(ctx, request);
+			return this->getRouteInfoByTopic(request);
 			break;
 		case GET_BROKER_CLUSTER_INFO:
 			//return this.getBrokerClusterInfo(ctx, request);
@@ -115,15 +116,18 @@ RemotingCommand DefaultRequestProcessor::processRequest(const MQBuffer & msg)
 RemotingCommand DefaultRequestProcessor::registerBroker( RemotingCommand *request) 
 {
     RemotingCommand response;
-    
-	RegisterBrokerRequestHeader requestHeader;
+	Json::Value& pj = request->getParsedJson();
+	Json::Value ext = pj["extFields"];
+	RegisterBrokerRequestHeader *requestHeader = 
+		(RegisterBrokerRequestHeader*)RegisterBrokerRequestHeader::decodeCommandCustomHeader(ext);
+	
 
     this->namesrvController->getRouteInfoManager()->registerBroker(
-    	requestHeader.getClusterName(),
-        requestHeader.getBrokerAddr(),
-        requestHeader.getBrokerName(),
-        requestHeader.getBrokerId(),
-        requestHeader.getHaServerAddr()
+    	requestHeader->getClusterName(),
+        requestHeader->getBrokerAddr(),
+        requestHeader->getBrokerName(),
+        requestHeader->getBrokerId(),
+        requestHeader->getHaServerAddr()
      );
 
      
@@ -151,6 +155,24 @@ RemotingCommand DefaultRequestProcessor::registerBrokerWithFilterServer( Remotin
 	
 		 
 	return response;
+}
+
+RemotingCommand DefaultRequestProcessor::getRouteInfoByTopic(RemotingCommand *request)
+{
+	RemotingCommand response;
+
+	Json::Value& pj = request->getParsedJson();
+	Json::Value ext = pj["extFields"];
+	GetRouteInfoRequestHeader *requestHeader = 
+		(GetRouteInfoRequestHeader*)GetRouteInfoRequestHeader::decodeCommandCustomHeader(ext);
+	
+	this->namesrvController->getRouteInfoManager()->pickupTopicRouteData(
+		requestHeader->getTopic()
+		);
+	
+		 
+	return response;
+
 }
 
     

@@ -12,14 +12,14 @@
 
 namespace lxmq{
 
-
+/*
 void GetRouteInfoRequestHeader::Encode(Json::Value& outData) {
   outData["topic"] = topic;
 }
 
 void GetRouteInfoRequestHeader::SetDeclaredFieldOfCommandHeader(map<string, string>& requestMap) {
   requestMap.insert(pair<string, string>("topic", topic));
-}
+}*/
 //<!***************************************************************************
 void UnregisterClientRequestHeader::Encode(Json::Value& outData) {
   outData["clientID"] = clientID;

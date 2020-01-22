@@ -12,6 +12,8 @@
 #include <set>
 using namespace std;
 
+#include "TopicRouteData.h"
+
 namespace lxmq{
 
 
@@ -54,14 +56,20 @@ public:
         const string brokerName,
         const long brokerId,
         const string haServerAddr);
+
+    TopicRouteData pickupTopicRouteData(const string topic);
 private:
+
+	typedef unordered_map<string/* clusterName */, set<string/* brokerName */>> ClusterBroker;
+	typedef unordered_map<string/* brokerName */, BrokerData> BrokerDatas;
+	typedef unordered_map<string/* topic */, list<QueueData>> TopicQueue;
     const static long BROKER_CHANNEL_EXPIRED_TIME = 1000 * 60 * 2;
-    const mutex lock;
-    //const unordered_map<string/* topic */, list<QueueData>> topicQueueTable;
-    //const unordered_map<string/* brokerName */, BrokerData> brokerAddrTable;
-    const unordered_map<string/* clusterName */, set<string/* brokerName */>> clusterAddrTable;
-    const unordered_map<string/* brokerAddr */, BrokerLiveInfo> brokerLiveTable;
-    const unordered_map<string/* brokerAddr */, list<string>/* Filter Server */> filterServerTable;
+    mutex rwlock;//use readwritemutex is better
+    TopicQueue topicQueueTable;
+    BrokerDatas brokerAddrTable;
+    ClusterBroker clusterAddrTable;
+    unordered_map<string/* brokerAddr */, BrokerLiveInfo> brokerLiveTable;
+    unordered_map<string/* brokerAddr */, list<string>/* Filter Server */> filterServerTable;
 
 
 };

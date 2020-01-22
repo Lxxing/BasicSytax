@@ -3,7 +3,8 @@
 //
 
 #include <iostream>
-#include <hash_map>
+#include <unordered_map>
+#include <set>
 using namespace std;
 
 #define LenTest 20
@@ -46,13 +47,50 @@ int main()
 	} SFOO;
 	/* Output is compiler dependent */
 	
+	/////unordered_map test///
+	const string hl = "hello";
+	unordered_map<string, string> unmap;
+	unordered_map<string, string>::iterator it = unmap.find(hl);
+
+	if (it == unmap.end())
+	{
+		unmap.insert(std::make_pair(hl, "word"));
+	}
+
+	for (auto& x : unmap)
+		std::cout << x.first << ": " << x.second << std::endl;
+
+
+	unordered_map<string, set<string>> setmap;
+
+	unordered_map<string, set<string>>::iterator setit = setmap.find(hl);
+
+	if (setit == setmap.end())
+	{
+		set<string> tmp;
+		tmp.insert("set");
+		setmap.insert(std::make_pair(hl, tmp));
+	}
+
+	for (auto& x : setmap)
+	{
+		std::cout << x.first << ": "  <<std::endl;
+		for (auto& y : x.second)
+		{
+			std::cout << y << std::endl;
+		}
+	}
+		
+
+
+	///////////
 	struct PA patest;
 
 	char tmp[255] = "/tests/a/00000000000000000000257";
 
 	char *p = p = strrchr(tmp, '/');
 	__int64 value = 0;
-	sscanf(p, "%lld", &value);
+	//sscanf(p, "%lld", &value);
 	
 	struct PA *pata = (struct PA *)malloc(sizeof(struct PA));
 	testPa(&pata);

@@ -86,7 +86,7 @@ class EndTransactionRequestHeader : public CommandHeader {
 };
 
 //<!************************************************************************
-class GetRouteInfoRequestHeader : public CommandHeader {
+/*class GetRouteInfoRequestHeader : public CommandHeader {
  public:
   GetRouteInfoRequestHeader(const string& top) : topic(top) {}
   virtual ~GetRouteInfoRequestHeader() {}
@@ -95,7 +95,7 @@ class GetRouteInfoRequestHeader : public CommandHeader {
 
  private:
   string topic;
-};
+};*/
 
 //<!************************************************************************
 class UnregisterClientRequestHeader : public CommandHeader {

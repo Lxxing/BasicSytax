@@ -102,6 +102,19 @@ public:
 			string sbid = tempValue.asString();
 			rnt->brokerId = 0;
 		}
+		
+		tempValue = ext["compressed"];
+		if (tempValue.isString()) {
+			string sbid = tempValue.asString();
+			rnt->compressed = 0;
+		}
+
+		tempValue = ext["bodyCrc32"];
+		if (tempValue.isString()) {
+			string sbid = tempValue.asString();
+			rnt->bodyCrc32 = 0;
+		}
+		
 		return rnt;
     }
 private:
