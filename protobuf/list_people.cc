@@ -72,6 +72,14 @@ int main(int argc, char* argv[]) {
 
   ListPeople(address_book);
 
+  for (int i = 0; i < address_book.sv_size(); i++)
+  {
+	  const tutorial::StringValue& stringvalue = address_book.sv(i);
+	  cout << stringvalue.value() << endl;
+  }
+  ::tutorial::StringValue *svale = new ::tutorial::StringValue();
+  svale->ParseFromString(address_book.value());
+  cout <<  svale->value()<< endl;
   // Optional:  Delete all global objects allocated by libprotobuf.
   google::protobuf::ShutdownProtobufLibrary();
 

@@ -54,6 +54,7 @@ void PromptForAddress(tutorial::Person* person) {
       cout << "Unknown phone type.  Using default." << endl;
     }
   }
+  
   //*person->mutable_last_updated() = TimeUtil::SecondsToTimestamp(time(NULL));
 }
 
@@ -85,7 +86,14 @@ int main(int argc, char* argv[]) {
 
   // Add an address.
   PromptForAddress(address_book.add_people());
+  ::tutorial::StringValue*test= address_book.add_sv();;
+  test->set_value("bian");
+  ::tutorial::StringValue*testb = address_book.add_sv();;
+  testb->set_value("mei");
+  ::tutorial::StringValue *svale = new ::tutorial::StringValue();
+  svale->set_value("na");
 
+  address_book.set_value(svale->SerializeAsString());
   {
     // Write the new address book back to disk.
     fstream output(argv[1], ios::out | ios::trunc | ios::binary);

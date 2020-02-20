@@ -48,7 +48,7 @@ struct TableStruct_addressbook_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxillaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[3]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[4]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -65,11 +65,15 @@ extern PersonDefaultTypeInternal _Person_default_instance_;
 class Person_PhoneNumber;
 class Person_PhoneNumberDefaultTypeInternal;
 extern Person_PhoneNumberDefaultTypeInternal _Person_PhoneNumber_default_instance_;
+class StringValue;
+class StringValueDefaultTypeInternal;
+extern StringValueDefaultTypeInternal _StringValue_default_instance_;
 }  // namespace tutorial
 PROTOBUF_NAMESPACE_OPEN
 template<> ::tutorial::AddressBook* Arena::CreateMaybeMessage<::tutorial::AddressBook>(Arena*);
 template<> ::tutorial::Person* Arena::CreateMaybeMessage<::tutorial::Person>(Arena*);
 template<> ::tutorial::Person_PhoneNumber* Arena::CreateMaybeMessage<::tutorial::Person_PhoneNumber>(Arena*);
+template<> ::tutorial::StringValue* Arena::CreateMaybeMessage<::tutorial::StringValue>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace tutorial {
 
@@ -465,6 +469,141 @@ class Person :
 };
 // -------------------------------------------------------------------
 
+class StringValue :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:tutorial.StringValue) */ {
+ public:
+  StringValue();
+  virtual ~StringValue();
+
+  StringValue(const StringValue& from);
+  StringValue(StringValue&& from) noexcept
+    : StringValue() {
+    *this = ::std::move(from);
+  }
+
+  inline StringValue& operator=(const StringValue& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline StringValue& operator=(StringValue&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const StringValue& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const StringValue* internal_default_instance() {
+    return reinterpret_cast<const StringValue*>(
+               &_StringValue_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    2;
+
+  friend void swap(StringValue& a, StringValue& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(StringValue* other) {
+    if (other == this) return;
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline StringValue* New() const final {
+    return CreateMaybeMessage<StringValue>(nullptr);
+  }
+
+  StringValue* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<StringValue>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const StringValue& from);
+  void MergeFrom(const StringValue& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(StringValue* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "tutorial.StringValue";
+  }
+  private:
+  inline ::PROTOBUF_NAMESPACE_ID::Arena* GetArenaNoVirtual() const {
+    return nullptr;
+  }
+  inline void* MaybeArenaPtr() const {
+    return nullptr;
+  }
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_addressbook_2eproto);
+    return ::descriptor_table_addressbook_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kValueFieldNumber = 1,
+  };
+  // string value = 1;
+  void clear_value();
+  const std::string& value() const;
+  void set_value(const std::string& value);
+  void set_value(std::string&& value);
+  void set_value(const char* value);
+  void set_value(const char* value, size_t size);
+  std::string* mutable_value();
+  std::string* release_value();
+  void set_allocated_value(std::string* value);
+  private:
+  const std::string& _internal_value() const;
+  void _internal_set_value(const std::string& value);
+  std::string* _internal_mutable_value();
+  public:
+
+  // @@protoc_insertion_point(class_scope:tutorial.StringValue)
+ private:
+  class _Internal;
+
+  ::PROTOBUF_NAMESPACE_ID::internal::InternalMetadataWithArena _internal_metadata_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr value_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_addressbook_2eproto;
+};
+// -------------------------------------------------------------------
+
 class AddressBook :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:tutorial.AddressBook) */ {
  public:
@@ -507,7 +646,7 @@ class AddressBook :
                &_AddressBook_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    2;
+    3;
 
   friend void swap(AddressBook& a, AddressBook& b) {
     a.Swap(&b);
@@ -572,6 +711,8 @@ class AddressBook :
 
   enum : int {
     kPeopleFieldNumber = 1,
+    kSvFieldNumber = 3,
+    kValueFieldNumber = 2,
   };
   // repeated .tutorial.Person people = 1;
   int people_size() const;
@@ -591,12 +732,48 @@ class AddressBook :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::tutorial::Person >&
       people() const;
 
+  // repeated .tutorial.StringValue sv = 3;
+  int sv_size() const;
+  private:
+  int _internal_sv_size() const;
+  public:
+  void clear_sv();
+  ::tutorial::StringValue* mutable_sv(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::tutorial::StringValue >*
+      mutable_sv();
+  private:
+  const ::tutorial::StringValue& _internal_sv(int index) const;
+  ::tutorial::StringValue* _internal_add_sv();
+  public:
+  const ::tutorial::StringValue& sv(int index) const;
+  ::tutorial::StringValue* add_sv();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::tutorial::StringValue >&
+      sv() const;
+
+  // bytes value = 2;
+  void clear_value();
+  const std::string& value() const;
+  void set_value(const std::string& value);
+  void set_value(std::string&& value);
+  void set_value(const char* value);
+  void set_value(const void* value, size_t size);
+  std::string* mutable_value();
+  std::string* release_value();
+  void set_allocated_value(std::string* value);
+  private:
+  const std::string& _internal_value() const;
+  void _internal_set_value(const std::string& value);
+  std::string* _internal_mutable_value();
+  public:
+
   // @@protoc_insertion_point(class_scope:tutorial.AddressBook)
  private:
   class _Internal;
 
   ::PROTOBUF_NAMESPACE_ID::internal::InternalMetadataWithArena _internal_metadata_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::tutorial::Person > people_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::tutorial::StringValue > sv_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr value_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_addressbook_2eproto;
 };
@@ -876,6 +1053,70 @@ Person::phones() const {
 
 // -------------------------------------------------------------------
 
+// StringValue
+
+// string value = 1;
+inline void StringValue::clear_value() {
+  value_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+inline const std::string& StringValue::value() const {
+  // @@protoc_insertion_point(field_get:tutorial.StringValue.value)
+  return _internal_value();
+}
+inline void StringValue::set_value(const std::string& value) {
+  _internal_set_value(value);
+  // @@protoc_insertion_point(field_set:tutorial.StringValue.value)
+}
+inline std::string* StringValue::mutable_value() {
+  // @@protoc_insertion_point(field_mutable:tutorial.StringValue.value)
+  return _internal_mutable_value();
+}
+inline const std::string& StringValue::_internal_value() const {
+  return value_.GetNoArena();
+}
+inline void StringValue::_internal_set_value(const std::string& value) {
+  
+  value_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value);
+}
+inline void StringValue::set_value(std::string&& value) {
+  
+  value_.SetNoArena(
+    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:tutorial.StringValue.value)
+}
+inline void StringValue::set_value(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  value_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:tutorial.StringValue.value)
+}
+inline void StringValue::set_value(const char* value, size_t size) {
+  
+  value_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:tutorial.StringValue.value)
+}
+inline std::string* StringValue::_internal_mutable_value() {
+  
+  return value_.MutableNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+inline std::string* StringValue::release_value() {
+  // @@protoc_insertion_point(field_release:tutorial.StringValue.value)
+  
+  return value_.ReleaseNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+inline void StringValue::set_allocated_value(std::string* value) {
+  if (value != nullptr) {
+    
+  } else {
+    
+  }
+  value_.SetAllocatedNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set_allocated:tutorial.StringValue.value)
+}
+
+// -------------------------------------------------------------------
+
 // AddressBook
 
 // repeated .tutorial.Person people = 1;
@@ -917,9 +1158,110 @@ AddressBook::people() const {
   return people_;
 }
 
+// bytes value = 2;
+inline void AddressBook::clear_value() {
+  value_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+inline const std::string& AddressBook::value() const {
+  // @@protoc_insertion_point(field_get:tutorial.AddressBook.value)
+  return _internal_value();
+}
+inline void AddressBook::set_value(const std::string& value) {
+  _internal_set_value(value);
+  // @@protoc_insertion_point(field_set:tutorial.AddressBook.value)
+}
+inline std::string* AddressBook::mutable_value() {
+  // @@protoc_insertion_point(field_mutable:tutorial.AddressBook.value)
+  return _internal_mutable_value();
+}
+inline const std::string& AddressBook::_internal_value() const {
+  return value_.GetNoArena();
+}
+inline void AddressBook::_internal_set_value(const std::string& value) {
+  
+  value_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value);
+}
+inline void AddressBook::set_value(std::string&& value) {
+  
+  value_.SetNoArena(
+    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:tutorial.AddressBook.value)
+}
+inline void AddressBook::set_value(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  value_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:tutorial.AddressBook.value)
+}
+inline void AddressBook::set_value(const void* value, size_t size) {
+  
+  value_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:tutorial.AddressBook.value)
+}
+inline std::string* AddressBook::_internal_mutable_value() {
+  
+  return value_.MutableNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+inline std::string* AddressBook::release_value() {
+  // @@protoc_insertion_point(field_release:tutorial.AddressBook.value)
+  
+  return value_.ReleaseNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+inline void AddressBook::set_allocated_value(std::string* value) {
+  if (value != nullptr) {
+    
+  } else {
+    
+  }
+  value_.SetAllocatedNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set_allocated:tutorial.AddressBook.value)
+}
+
+// repeated .tutorial.StringValue sv = 3;
+inline int AddressBook::_internal_sv_size() const {
+  return sv_.size();
+}
+inline int AddressBook::sv_size() const {
+  return _internal_sv_size();
+}
+inline void AddressBook::clear_sv() {
+  sv_.Clear();
+}
+inline ::tutorial::StringValue* AddressBook::mutable_sv(int index) {
+  // @@protoc_insertion_point(field_mutable:tutorial.AddressBook.sv)
+  return sv_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::tutorial::StringValue >*
+AddressBook::mutable_sv() {
+  // @@protoc_insertion_point(field_mutable_list:tutorial.AddressBook.sv)
+  return &sv_;
+}
+inline const ::tutorial::StringValue& AddressBook::_internal_sv(int index) const {
+  return sv_.Get(index);
+}
+inline const ::tutorial::StringValue& AddressBook::sv(int index) const {
+  // @@protoc_insertion_point(field_get:tutorial.AddressBook.sv)
+  return _internal_sv(index);
+}
+inline ::tutorial::StringValue* AddressBook::_internal_add_sv() {
+  return sv_.Add();
+}
+inline ::tutorial::StringValue* AddressBook::add_sv() {
+  // @@protoc_insertion_point(field_add:tutorial.AddressBook.sv)
+  return _internal_add_sv();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::tutorial::StringValue >&
+AddressBook::sv() const {
+  // @@protoc_insertion_point(field_list:tutorial.AddressBook.sv)
+  return sv_;
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
