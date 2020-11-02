@@ -3,8 +3,18 @@
 
 #include <iostream>
 
+#include <boost/thread.hpp>
+
+void threadFunc()
+{
+	std::cout << "boost thread hello world!" << std::endl;
+}
+
 int main()
 {
+	boost::function<void()> tdfunc(threadFunc);
+	boost::thread td(tdfunc);
+	td.join();
     std::cout << "Hello World!\n";
 }
 
