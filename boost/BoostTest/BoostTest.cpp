@@ -5,6 +5,8 @@
 
 #include <boost/thread.hpp>
 
+#include "BiMapTest.h"
+
 void threadFunc()
 {
 	std::cout << "boost thread hello world!" << std::endl;
@@ -16,6 +18,8 @@ int main()
 	boost::thread td(tdfunc);
 	td.join();
     std::cout << "Hello World!\n";
+
+	BiMapTest test;
 }
 
 // 运行程序: Ctrl + F5 或调试 >“开始执行(不调试)”菜单

@@ -153,7 +153,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BiMapTest.cpp" />
     <ClCompile Include="BoostTest.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="BiMapTest.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
