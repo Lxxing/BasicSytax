@@ -1,10 +1,8 @@
-<UI version="4.0" >
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
  <class>QScrollAreaTestClass</class>
- <widget class="QWidget" name="QScrollAreaTestClass" >
-  <property name="objectName" >
-   <string notr="true">QScrollAreaTestClass</string>
-  </property>
-  <property name="geometry" >
+ <widget class="QWidget" name="QScrollAreaTestClass">
+  <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
@@ -12,14 +10,32 @@
     <height>400</height>
    </rect>
   </property>
-  <property name="windowTitle" >
+  <property name="windowTitle">
    <string>QScrollAreaTest</string>
-  </property>$centralwidget$
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <widget class="QScrollArea" name="scrollArea">
+     <property name="widgetResizable">
+      <bool>true</bool>
+     </property>
+     <widget class="QWidget" name="scrollAreaWidgetContents">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>580</width>
+        <height>380</height>
+       </rect>
+      </property>
+     </widget>
+    </widget>
+   </item>
+  </layout>
  </widget>
- <layoutDefault spacing="6" margin="11" />
- <pixmapfunction></pixmapfunction>
+ <layoutdefault spacing="6" margin="11"/>
  <resources>
-   <include location="QScrollAreaTest.qrc"/>
+  <include location="QScrollAreaTest.qrc"/>
  </resources>
  <connections/>
-</UI>
+</ui>

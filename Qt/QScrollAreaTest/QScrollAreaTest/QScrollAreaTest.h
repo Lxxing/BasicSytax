@@ -10,6 +10,7 @@ class QScrollAreaTest : public QWidget
 public:
     QScrollAreaTest(QWidget *parent = Q_NULLPTR);
 
+	void initItems();
 private:
     Ui::QScrollAreaTestClass ui;
 };
