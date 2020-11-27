@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1209
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "QtProcess", "QtProcess\QtProcess.vcxproj", "{99F62516-C3BB-40B7-BD6A-304382DFB94D}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "analogclock", "..\..\..\..\..\..\Qt\Qt5.13.2\Examples\Qt-5.13.2\widgets\widgets\analogclock\analogclock.vcxproj", "{05873D34-17EC-37A3-8EDC-93CE13F6698E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{99F62516-C3BB-40B7-BD6A-304382DFB94D}.Debug|x64.ActiveCfg = Debug|x64
+		{99F62516-C3BB-40B7-BD6A-304382DFB94D}.Debug|x64.Build.0 = Debug|x64
+		{99F62516-C3BB-40B7-BD6A-304382DFB94D}.Release|x64.ActiveCfg = Release|x64
+		{99F62516-C3BB-40B7-BD6A-304382DFB94D}.Release|x64.Build.0 = Release|x64
+		{05873D34-17EC-37A3-8EDC-93CE13F6698E}.Debug|x64.ActiveCfg = Debug|x64
+		{05873D34-17EC-37A3-8EDC-93CE13F6698E}.Debug|x64.Build.0 = Debug|x64
+		{05873D34-17EC-37A3-8EDC-93CE13F6698E}.Release|x64.ActiveCfg = Release|x64
+		{05873D34-17EC-37A3-8EDC-93CE13F6698E}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0B555527-FDE0-43BB-8B9C-5C39870802C4}
+	EndGlobalSection
+EndGlobal
