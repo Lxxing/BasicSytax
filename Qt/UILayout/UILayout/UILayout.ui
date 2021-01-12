@@ -1,0 +1,25 @@
+<UI version="4.0" >
+ <class>UILayoutClass</class>
+ <widget class="QWidget" name="UILayoutClass" >
+  <property name="objectName" >
+   <string notr="true">UILayoutClass</string>
+  </property>
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>600</width>
+    <height>400</height>
+   </rect>
+  </property>
+  <property name="windowTitle" >
+   <string>UILayout</string>
+  </property>$centralwidget$
+ </widget>
+ <layoutDefault spacing="6" margin="11" />
+ <pixmapfunction></pixmapfunction>
+ <resources>
+   <include location="UILayout.qrc"/>
+ </resources>
+ <connections/>
+</UI>
