@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1209
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "QtTreeTest", "QtTreeTest\QtTreeTest.vcxproj", "{8C9E6747-F2BD-4694-81E4-6FFAAA0E9E4F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8C9E6747-F2BD-4694-81E4-6FFAAA0E9E4F}.Debug|x64.ActiveCfg = Debug|x64
+		{8C9E6747-F2BD-4694-81E4-6FFAAA0E9E4F}.Debug|x64.Build.0 = Debug|x64
+		{8C9E6747-F2BD-4694-81E4-6FFAAA0E9E4F}.Release|x64.ActiveCfg = Release|x64
+		{8C9E6747-F2BD-4694-81E4-6FFAAA0E9E4F}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D20E8C92-B290-4053-AB60-905DE4D896FA}
+	EndGlobalSection
+EndGlobal

@@ -9,7 +9,8 @@ class QtProcess : public QWidget
 
 public:
     QtProcess(QWidget *parent = Q_NULLPTR);
-	void init();
+	void init();//À­Æð²âÊÔ³ÌÐò
+	void cmdTest();
 private:
     Ui::QtProcessClass ui;
 };

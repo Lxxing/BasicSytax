@@ -7,20 +7,36 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "QtProcess", "QtProcess\QtPr
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "analogclock", "..\..\..\..\..\..\Qt\Qt5.13.2\Examples\Qt-5.13.2\widgets\widgets\analogclock\analogclock.vcxproj", "{05873D34-17EC-37A3-8EDC-93CE13F6698E}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ConsoleTest", "ConsoleTest\ConsoleTest.vcxproj", "{8016DE71-26C0-43AB-8C39-126BB6E865B3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
 		Release|x64 = Release|x64
+		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{99F62516-C3BB-40B7-BD6A-304382DFB94D}.Debug|x64.ActiveCfg = Debug|x64
 		{99F62516-C3BB-40B7-BD6A-304382DFB94D}.Debug|x64.Build.0 = Debug|x64
+		{99F62516-C3BB-40B7-BD6A-304382DFB94D}.Debug|x86.ActiveCfg = Debug|x64
 		{99F62516-C3BB-40B7-BD6A-304382DFB94D}.Release|x64.ActiveCfg = Release|x64
 		{99F62516-C3BB-40B7-BD6A-304382DFB94D}.Release|x64.Build.0 = Release|x64
+		{99F62516-C3BB-40B7-BD6A-304382DFB94D}.Release|x86.ActiveCfg = Release|x64
 		{05873D34-17EC-37A3-8EDC-93CE13F6698E}.Debug|x64.ActiveCfg = Debug|x64
 		{05873D34-17EC-37A3-8EDC-93CE13F6698E}.Debug|x64.Build.0 = Debug|x64
+		{05873D34-17EC-37A3-8EDC-93CE13F6698E}.Debug|x86.ActiveCfg = Debug|x64
 		{05873D34-17EC-37A3-8EDC-93CE13F6698E}.Release|x64.ActiveCfg = Release|x64
 		{05873D34-17EC-37A3-8EDC-93CE13F6698E}.Release|x64.Build.0 = Release|x64
+		{05873D34-17EC-37A3-8EDC-93CE13F6698E}.Release|x86.ActiveCfg = Release|x64
+		{8016DE71-26C0-43AB-8C39-126BB6E865B3}.Debug|x64.ActiveCfg = Debug|x64
+		{8016DE71-26C0-43AB-8C39-126BB6E865B3}.Debug|x64.Build.0 = Debug|x64
+		{8016DE71-26C0-43AB-8C39-126BB6E865B3}.Debug|x86.ActiveCfg = Debug|Win32
+		{8016DE71-26C0-43AB-8C39-126BB6E865B3}.Debug|x86.Build.0 = Debug|Win32
+		{8016DE71-26C0-43AB-8C39-126BB6E865B3}.Release|x64.ActiveCfg = Release|x64
+		{8016DE71-26C0-43AB-8C39-126BB6E865B3}.Release|x64.Build.0 = Release|x64
+		{8016DE71-26C0-43AB-8C39-126BB6E865B3}.Release|x86.ActiveCfg = Release|Win32
+		{8016DE71-26C0-43AB-8C39-126BB6E865B3}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
