@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1209
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "QtEmbeded", "QtEmbeded.vcxproj", "{EF8BFA30-280C-4CDD-8A2E-9AF11E9F26D8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EF8BFA30-280C-4CDD-8A2E-9AF11E9F26D8}.Debug|x64.ActiveCfg = Debug|x64
+		{EF8BFA30-280C-4CDD-8A2E-9AF11E9F26D8}.Debug|x64.Build.0 = Debug|x64
+		{EF8BFA30-280C-4CDD-8A2E-9AF11E9F26D8}.Release|x64.ActiveCfg = Release|x64
+		{EF8BFA30-280C-4CDD-8A2E-9AF11E9F26D8}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {48CACA77-6187-4F69-B1DF-60D2F503AEED}
+	EndGlobalSection
+EndGlobal
