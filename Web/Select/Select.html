@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function selectone()
+        {
+            var select1=document.getElementById('selecttest');
+            for (var i=0;i<select1.length;i++)
+            { 
+                document.write(select1.options[i] + "<br>");
+            }
+        }
+
+
+    </script>
+</head>
+<body>
+    <select id="selecttest">
+        <option value="东风本田">东风本田</option>
+        <option value="广汽本田">广汽本田</option>
+        <option value="一汽大众">一汽大众</option>
+        <option value="上海大众">上海大众</option>
+      </select>
+      <input type="submit" onclick="selectone">
+</body>
+</html>

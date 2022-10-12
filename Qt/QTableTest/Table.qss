@@ -1,0 +1,3 @@
+QLineEdit,QTextEdit{
+background:transparent;
+}
