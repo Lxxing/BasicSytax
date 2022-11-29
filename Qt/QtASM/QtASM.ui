@@ -6,12 +6,12 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>349</width>
+    <width>449</width>
     <height>79</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>QtASM</string>
+   <string>QtASM逆向示例</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
